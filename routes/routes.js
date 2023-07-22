@@ -15,6 +15,8 @@ router.post('/register',async (req,res)=>{
     let password = req.body.password;
     let name = req.body.name;
 
+    console.log('enivorment success');
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password,salt);
     const record = await User.findOne({email:email});
